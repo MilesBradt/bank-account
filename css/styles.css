@@ -5,3 +5,16 @@
 .output {
   display: none;
 }
+
+.deposit {
+  display: none;
+}
+
+.withdrawal {
+  display: none;
+}
+
+
+.changingBalance {
+  display: none;
+}
