@@ -25,7 +25,7 @@ BankAccount.prototype.depositing = function(deposit) {
 
 BankAccount.prototype.withdrawing = function(withdraw) {
   var account = this.bankInfo[0];
-  return account.balance - withdraw;
+  return account.balance = account.balance - withdraw;
 }
 
 var newAccount = new BankAccount;
@@ -47,5 +47,10 @@ $(document).ready(function() {
     $("#depositButton").click(function(){
       var deposit = parseInt($("#deposit").val());
       $("#balanceOutput").text(newAccount.depositing(deposit));
+    });
+
+    $("#withdrawButton").click(function(){
+      var withdrawal = parseInt($("#withdrawal").val());
+      $("#balanceOutput").text(newAccount.withdrawing(withdrawal));
     });
 });
