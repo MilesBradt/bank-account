@@ -45,8 +45,13 @@ $(document).ready(function() {
   $("#userInput").submit(function(event) {
     event.preventDefault();
     var name = $("#name").val();
-    var initialDepositChecking = parseInt($("#initialDepositChecking").val());
-    var initialDepositSaving = parseInt($("#initialDepositSaving").val());
+    var initialDepositChecking = $("#initialDepositChecking").val();
+    var initialDepositSaving = $("#initialDepositSaving").val();
+    if (initialDepositSaving === "" || initialDepositChecking ===""){
+      alert("Please enter a number")
+    } else {
+    parseInt(initialDepositChecking)
+    parseInt(initialDepositSaving)
     var initialInfo = new BankInfo(name, initialDepositChecking, initialDepositSaving);
     newAccount.addInfo(initialInfo);
 
@@ -57,6 +62,7 @@ $(document).ready(function() {
     $("#nameOutput").text(initialInfo.name);
     $("#checkingOutput").text(initialInfo.balanceChecking);
     $("#savingsOutput").text(initialInfo.balanceSaving);
+    }
   });
 
   $("#depositOrWithdraw").change(function() {
