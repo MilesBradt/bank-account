@@ -7,28 +7,18 @@ function BankInfo(name, balance) {
 
 function BankAccount() {
   this.bankInfo = [];
-  this.currentId = 0;
+  // this.currentId = 0;
 }
 
-// function DepositAndWithdraw(deposit, withdraw) {
-//
-//   this.deposit = deposit,
-//   this.withdraw = withdraw
-//   console.log(deposit);
-//   console.log(withdraw);
-//   return (this.deposit, this.withdraw)
-//
-// }
-
 BankAccount.prototype.addInfo = function(info) {
-  BankInfo.id = this.assignId();
+  // BankInfo.id = this.assignId();
   this.bankInfo.push(info);
 }
 
-BankAccount.prototype.assignId = function() {
-  this.currentId += 1;
-  return this.currentId;
-}
+// BankAccount.prototype.assignId = function() {
+//   this.currentId += 1;
+//   return this.currentId;
+// }
 
 BankAccount.prototype.depositing = function(deposit) {
   var account = this.bankInfo[0]
@@ -41,5 +31,7 @@ BankAccount.prototype.withdrawing = function(withdraw) {
 }
 
 var newAccount = new BankAccount;
+
 $(document).ready(function() {
+
 });
