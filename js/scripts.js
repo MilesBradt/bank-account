@@ -1,9 +1,6 @@
 function BankInfo(name, initialDeposit) {
   this.name = name,
   this.balance = initialDeposit
-  console.log(this.balance);
-  console.log(this.name);
-  // this.email = email,
 }
 
 function BankAccount() {
@@ -22,8 +19,8 @@ BankAccount.prototype.addInfo = function(info) {
 // }
 
 BankAccount.prototype.depositing = function(deposit) {
-  var account = this.bankInfo[0]
-  return deposit + account.balance
+  var account = this.bankInfo[0];
+  return account.balance = deposit + account.balance;
 }
 
 BankAccount.prototype.withdrawing = function(withdraw) {
@@ -40,11 +37,15 @@ $(document).ready(function() {
     var name = $("#name").val();
     var initiaDeposit = parseInt($("#initialDeposit").val());
     var initialInfo = new BankInfo(name, initiaDeposit);
-    console.log(initialInfo);
     newAccount.addInfo(initialInfo);
-    console.log(newAccount);
+
     $(".output").show();
     $("#nameOutput").text(initialInfo.name);
     $("#balanceOutput").text(initialInfo.balance);
   });
+
+    $("#depositButton").click(function(){
+      var deposit = parseInt($("#deposit").val());
+      $("#balanceOutput").text(newAccount.depositing(deposit));
+    });
 });
