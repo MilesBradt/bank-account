@@ -23,15 +23,19 @@ BankAccount.prototype.addInfo = function(info) {
 BankAccount.prototype.depositing = function(deposit, id) {
   var account = this.bankInfo[0];
   if(id === "0") {
-  return account.balanceChecking = deposit + account.balanceChecking;
+    return account.balanceChecking = deposit + account.balanceChecking;
   } else if (id === "1") {
-  return account.balanceSaving = deposit + account.balanceSaving;
+    return account.balanceSaving = deposit + account.balanceSaving;
   }
 }
 
-BankAccount.prototype.withdrawing = function(withdraw) {
+BankAccount.prototype.withdrawing = function(withdraw, id) {
   var account = this.bankInfo[0];
-  return account.balance = account.balance - withdraw;
+  if(id === "0") {
+    return account.balanceChecking = account.balanceChecking - withdraw;
+  } else if(id ==="1") {
+    return account.balanceSaving = account.balanceSaving - withdraw;
+  }
 }
 
 //User interface logic
@@ -69,18 +73,34 @@ $(document).ready(function() {
   $(".balances").submit(function(event) {
     event.preventDefault();
     var id = $("#checkingOrSavingSelect").val();
-    console.log(id);
-    var deposit = parseInt($("#deposit").val());
-    console.log(deposit);
-    if (id === "0") {
-    var depositChecking = newAccount.depositing(deposit, id);
-    } else if (id === "1") {
-    var depositSaving = newAccount.depositing(deposit, id);
-    }
-    $("#checkingOutput").text(depositChecking);
-    $("#savingsOutput").text(depositSaving);
+    var dOrW = $("#depositOrWithdraw").val();
+    var deposit = $("#deposit").val();
+    var withdraw = $("#withdrawal").val();
 
-    var withdrawal = parseInt($("#withdrawal").val());
-    $("#balanceOutput").text(newAccount.withdrawing(withdrawal));
+    if(dOrW === "deposit") {
+      if(deposit === "") {
+        alert("Please enter a number");
+      } else if (id === "0") {
+        var deposit = parseInt(deposit);
+        var depositChecking = newAccount.depositing(deposit, id);
+      } else if (id === "1") {
+        var deposit = parseInt(deposit);
+        var depositSaving = newAccount.depositing(deposit, id);
+      }
+      $("#checkingOutput").text(depositChecking);
+      $("#savingsOutput").text(depositSaving);
+    } else if(dOrW === "withdraw") {
+      if(withdraw === ""){
+        alert("Please enter a number");
+      } else if (id === "0") {
+        var withdraw = parseInt(withdraw);
+        var withdrawChecking = newAccount.withdrawing(withdraw, id);
+      } else if (id === "1") {
+        var withdraw = parseInt(withdraw);
+        var withdrawSaving = newAccount.withdrawing(withdraw, id);
+      }
+      $("#checkingOutput").text(withdrawChecking);
+      $("#savingsOutput").text(withdrawSaving);
+    }
   });
 });
