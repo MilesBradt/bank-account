@@ -31,7 +31,6 @@ BankAccount.prototype.withdrawing = function(withdraw) {
 var newAccount = new BankAccount;
 
 $(document).ready(function() {
-
   $("#userInput").submit(function(event) {
     event.preventDefault();
     var name = $("#name").val();
@@ -44,13 +43,13 @@ $(document).ready(function() {
     $("#balanceOutput").text(initialInfo.balance);
   });
 
-    $("#depositButton").click(function(){
-      var deposit = parseInt($("#deposit").val());
-      $("#balanceOutput").text(newAccount.depositing(deposit));
-    });
+  $("#depositButton").click(function(){
+    var deposit = parseInt($("#deposit").val());
+    $("#balanceOutput").text(newAccount.depositing(deposit));
+  });
 
-    $("#withdrawButton").click(function(){
-      var withdrawal = parseInt($("#withdrawal").val());
-      $("#balanceOutput").text(newAccount.withdrawing(withdrawal));
-    });
+  $("#withdrawButton").click(function(){
+    var withdrawal = parseInt($("#withdrawal").val());
+    $("#balanceOutput").text(newAccount.withdrawing(withdrawal));
+  });
 });

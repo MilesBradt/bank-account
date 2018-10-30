@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/scripts.js"></script>
-    <title></title>
-  </head>
-  <body>
-    <form id="userInput">
-      <label for="name">Name: </label>
-      <input id="name" type="text" name="">
-      <br>
-      <label for="initialDeposit">Initial Deposit: </label>
-      <input id="initialDeposit" type="number">
-      <br>
-      <button class="btn okay" type="submit" name="button">Okay</button>
-    </form>
-
-    <div class="changingBalance">
-      <label for="deposit">Deposit:</label>
-      <input id="deposit" type="number">
-      <button id="depositButton" class="btn okay" type="button" name="button">Deposit</button>
-      <label for="withdrawal">Withdrawal:</label>
-      <input id="withdrawal" type="number">
-      <button id="withdrawButton" class="btn okay" type="button" name="button">Withdrawal</button>
+<head>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <title></title>
+</head>
+<body>
+  <div class="container">
+    <h1>Enter your name and initial balance:</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="well">
+          <form id="userInput">
+            <label for="name">Name: </label>
+            <input id="name" type="text" name="">
+            <br>
+            <label for="initialDeposit">Initial Deposit: </label>
+            <input id="initialDeposit" type="number">
+            <br>
+            <button class="btn okay" type="submit" name="button">Okay</button>
+          </form>
+        </div>
+      </div>
     </div>
-
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="changingBalance">
+          <h1>Deposit or withdraw:</h1>
+          <div class="well">
+            <label for="deposit">Deposit:</label>
+            <input id="deposit" type="number">
+            <button id="depositButton" class="btn okay" type="button" name="button">Deposit</button>
+            <br>
+            <br>
+            <label for="withdrawal">Withdrawal:</label>
+            <input id="withdrawal" type="number">
+            <button id="withdrawButton" class="btn okay" type="button" name="button">Withdrawal</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="output">
       <span id="nameOutput"></span>, your balance is <span id="balanceOutput"></span>
     </div>
-  </body>
+  </div>
+</body>
 </html>
