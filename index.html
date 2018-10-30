@@ -21,17 +21,27 @@
             <label for="name">Name: </label>
             <input id="name" type="text" name="">
             <br>
-            <label for="initialDeposit">Initial Deposit: </label>
-            <input id="initialDeposit" type="number">
+            <label for="initialDepositChecking">Initial Deposit for Checking: </label>
+            <input id="initialDepositChecking" type="number">
             <br>
+            <label for="initialDepositSaving">Initial Deposit for Saving: </label>
+            <input id="initialDepositSaving" type="number">
             <button class="btn okay" type="submit" name="button">Okay</button>
           </form>
         </div>
       </div>
       <div class="col-md-4">
+        <div class="checkingOrSaving">
+          <div class="well testing">
+            <h2>Checking or Savings?</h2>
+          <select id="checkingOrSavingSelect">
+            <option>Please select an option</option>
+            <option value="deposit">Checking</option>
+            <option value="withdraw">Saving</option>
+          </select>
+        </div>
         <div class="changingBalance">
           <h2>Deposit or withdraw:</h2>
-          <div class="well testing">
             <select id="depositOrWithdraw">
               <option>Please select an option</option>
               <option value="deposit">Deposit</option>
@@ -61,7 +71,11 @@
       <div class="col-md-8">
         <div class="output">
           <div class="well">
-            <span id="nameOutput"></span>, your balance is <span id="balanceOutput"></span>
+            <span id="nameOutput"></span>
+            <br>
+            Checking Balance: <span id="checkingOutput"></span>
+            <br>
+            Savings Balance: <span id="savingsOutput"></span>
           </div>
         </div>
       </div>

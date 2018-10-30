@@ -1,7 +1,8 @@
 //Business logic
-function BankInfo(name, initialDeposit) {
+function BankInfo(name, initialDepositChecking, initialDepositSaving) {
   this.name = name,
-  this.balance = initialDeposit
+  this.balanceChecking = initialDepositChecking
+  this.balanceSaving = initialDepositSaving
 }
 
 function BankAccount() {
@@ -36,15 +37,18 @@ $(document).ready(function() {
   $("#userInput").submit(function(event) {
     event.preventDefault();
     var name = $("#name").val();
-    var initiaDeposit = parseInt($("#initialDeposit").val());
-    var initialInfo = new BankInfo(name, initiaDeposit);
+    var initialDepositChecking = parseInt($("#initialDepositChecking").val());
+    var initialDepositSaving = parseInt($("#initialDepositSaving").val());
+    var initialInfo = new BankInfo(name, initialDepositChecking, initialDepositSaving);
     newAccount.addInfo(initialInfo);
 
     $(".output").show();
-    $(".changingBalance").show();
+
+    $(".checkingOrSaving").show();
     $(".initialSetup").hide();
     $("#nameOutput").text(initialInfo.name);
-    $("#balanceOutput").text(initialInfo.balance);
+    $("#checkingOutput").text(initialInfo.balanceChecking);
+    $("#savingsOutput").text(initialInfo.balanceSaving);
   });
 
   $("#depositOrWithdraw").change(function(event) {
