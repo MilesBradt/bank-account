@@ -1,3 +1,7 @@
 .okay {
   background-color: #DFDFDF;
 }
+
+.output {
+  display: none;
+}

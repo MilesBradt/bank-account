@@ -1,7 +1,8 @@
-function BankInfo(name, balance) {
+function BankInfo(name, initialDeposit) {
   this.name = name,
-  this.balance = balance
+  this.balance = initialDeposit
   console.log(this.balance);
+  console.log(this.name);
   // this.email = email,
 }
 
@@ -34,4 +35,16 @@ var newAccount = new BankAccount;
 
 $(document).ready(function() {
 
+  $("#userInput").submit(function(event) {
+    event.preventDefault();
+    var name = $("#name").val();
+    var initiaDeposit = parseInt($("#initialDeposit").val());
+    var initialInfo = new BankInfo(name, initiaDeposit);
+    console.log(initialInfo);
+    newAccount.addInfo(initialInfo);
+    console.log(newAccount);
+    $(".output").show();
+    $("#nameOutput").text(initialInfo.name);
+    $("#balanceOutput").text(initialInfo.balance);
+  });
 });
