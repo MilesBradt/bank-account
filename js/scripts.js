@@ -20,9 +20,13 @@ BankAccount.prototype.addInfo = function(info) {
 //   return this.currentId;
 // }
 
-BankAccount.prototype.depositing = function(deposit) {
+BankAccount.prototype.depositing = function(deposit, id) {
   var account = this.bankInfo[0];
-  return account.balance = deposit + account.balance;
+  if(id === "0") {
+  return account.balanceChecking = deposit + account.balanceChecking;
+  } else if (id === "1") {
+  return account.balanceSaving = deposit + account.balanceSaving;
+  }
 }
 
 BankAccount.prototype.withdrawing = function(withdraw) {
@@ -51,8 +55,7 @@ $(document).ready(function() {
     $("#savingsOutput").text(initialInfo.balanceSaving);
   });
 
-  $("#depositOrWithdraw").change(function(event) {
-    event.preventDefault();
+  $("#depositOrWithdraw").change(function() {
     var result = $("#depositOrWithdraw").val();
     if (result === "deposit") {
       $(".deposit").show();
@@ -63,13 +66,20 @@ $(document).ready(function() {
     }
   });
 
-  $("#depositButton").click(function(){
+  $(".balances").submit(function(event) {
+    event.preventDefault();
+    var id = $("#checkingOrSavingSelect").val();
+    console.log(id);
     var deposit = parseInt($("#deposit").val());
-    var id = 0
-    $("#balanceOutput").text(newAccount.depositing(deposit, id));
-  });
+    console.log(deposit);
+    if (id === "0") {
+    var depositChecking = newAccount.depositing(deposit, id);
+    } else if (id === "1") {
+    var depositSaving = newAccount.depositing(deposit, id);
+    }
+    $("#checkingOutput").text(depositChecking);
+    $("#savingsOutput").text(depositSaving);
 
-  $("#withdrawalButton").click(function(){
     var withdrawal = parseInt($("#withdrawal").val());
     $("#balanceOutput").text(newAccount.withdrawing(withdrawal));
   });
